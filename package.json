@@ -1,0 +1,21 @@
+{
+  "name": "docs.scbj.io",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "engines": {
+    "node": "8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sachabejaud@bitbucket.org/sachabejaud/docs.scbj.io.git"
+  },
+  "author": "Sacha Bejaud",
+  "contributors": [
+    "Sacha Bejaud <sacha.bejaud@outlook.com> (http://who.scbj.io)"
+  ],
+  "license": "MIT"
+}
