@@ -1,9 +1,6 @@
 module.exports = {
   title: 'Docs',
   description: "Tips and tricks in development and UI / UX 🌠",
-  markdown: {
-    lineNumbers: true
-  },
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
