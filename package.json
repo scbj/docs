@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  },
-  "engines": {
-    "node": "8.0.0"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -17,5 +14,8 @@
   "contributors": [
     "Sacha Bejaud <sacha.bejaud@outlook.com> (http://who.scbj.io)"
   ],
+  "dependencies": {
+    "vuepress": "^0.14.11"
+  },
   "license": "MIT"
 }
