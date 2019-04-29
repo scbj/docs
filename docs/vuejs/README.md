@@ -1,7 +1,3 @@
----
-title: Vue.js
----
-
 # Vue.js
 
 ## Global Event Bus
