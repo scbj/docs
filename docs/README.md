@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /images/profil-picture.png
-actionText: Sésame, ouvre-toi !  →
+actionText: Get started!  →
 actionLink: /guide/
 features:
 - title: ✍ Empowering

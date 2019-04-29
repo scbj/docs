@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Docs',
-  description: "Ali baba's cave of my knowledge 🌠",
+  description: "Tips and tricks in development and UI / UX 🌠",
   markdown: {
     lineNumbers: true
   },
