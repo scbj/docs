@@ -17,7 +17,7 @@ The list of threads can be found in the [Thread](/guide/#threads) section of the
 
 ## External Links
 
-A link list to some resources and tools.
+A link list to some tools, services and resources.
 
 ### Animations
 
@@ -32,13 +32,19 @@ A link list to some resources and tools.
 * ![img](/images/icons/hue-snap.png) [HueSnap](https://www.huesnap.com/)
 <br>A tool to create color palettes through your images.
 
+### Hosting
+
+* ![img](/images/icons/scaleway.png) [Scaleway](https://www.scaleway.com)
+<br>Cloud instances delivered in seconds with backup, network and security options.
+
+
 ### Icons & Icon Fonts
 
 * ![img](/images/icons/flaticon.png) [Flaticon](https://www.flaticon.com/)
 <br>**Largest search engine of free icons in the world**
 <br>The largest database of free icons available in PNG, SVG, EPS, PSD and BASE 64 formats.
 
-* [Heroicons (not free)](http://www.heroicons.com/)
+* [Heroicons (not free)](https://www.heroicons.com/)
 <br>Heroicons are a unique set of icons for your marketing website that make it easy to customize with CSS to better align to your brand.
 
 * ![img](/images/icons/iconic.png) [Iconic (not free)](https://useiconic.com/) ✔
@@ -60,7 +66,7 @@ A link list to some resources and tools.
 [Themify Icons](https://themify.me/themify-icons)
 <br>Themify Icons is a complete set of icons for use in web design and apps, consisting of 320+ pixel-perfect, hand-crafted icons that draw inspiration from Apple iOS 7.
 
-* ![img](http://weloveiconfonts.com/skin/img/weloveiconfonts.ico)
+* ![img](/images/icons/weloveiconfonts.png)
 [We Love Icon Font](http://weloveiconfonts.com/)
 <br>This is a free & open source icon fonts hosting service (like Google Web Fonts, but icon fonts only).
 

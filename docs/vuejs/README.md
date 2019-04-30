@@ -109,6 +109,8 @@ Vue’s reactivity system is great, but it doesn’t handle quite everything. Th
 
 ## Using SVG Icons
 
+Source: [Alligator.io](https://alligator.io/vuejs/global-event-bus/)
+
 > While font-based icons ruled the world a year or two ago, embedded SVG icons have since taken the stage (often credited to [this post](https://css-tricks.com/icon-fonts-vs-svg/)) as the best way to include icons in your app. Unfortunately, adding them by hand requires a lot of work and duplicated effort. Thankfully, [vue-svgicon](https://github.com/MMF-FE/vue-svgicon) aims to simplify this and does a wonderful job.
 
 Let’s get started with it shall we?

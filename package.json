@@ -12,7 +12,7 @@
   },
   "author": "Sacha Bejaud",
   "contributors": [
-    "Sacha Bejaud <sacha.bejaud@outlook.com> (http://who.scbj.io)"
+    "Sacha Bejaud <sacha.bejaud@outlook.com> (https://who.scbj.io)"
   ],
   "dependencies": {
     "vuepress": "^0.14.11"
