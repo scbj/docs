@@ -6,7 +6,7 @@ Beautiful personal documentations powered by [VuePress](https://vuepress.vuejs.o
 If you'r wonder, the principles in the Home page come from [Human by Design](https://humanebydesign.com/)
 :::
 
-## Introduction
+## Introduction 🌈
 
 > This site allows me to keep the tips and documentations in one place, organized, searchable and easy to edit.
 
