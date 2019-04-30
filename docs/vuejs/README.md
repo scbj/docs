@@ -118,7 +118,6 @@ Let’s get started with it shall we?
 `vue-svgicon` can be installed via Yarn or NPM as expected:
 
 ``` bash
-# Yarn
 $ yarn add vue-svgicon -D
 ```
 
