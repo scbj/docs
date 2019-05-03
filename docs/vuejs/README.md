@@ -169,3 +169,108 @@ import './compiled-icons/menu';
 ```
 
 There are a few other neat little tricks v**ue-svgicon** has up its sleeve, find out more at the [official repository](https://github.com/MMF-FE/vue-svgicon).
+
+
+
+
+## Writing Animations That Bring Your Site to Life
+
+Source: [CSS-Tricks](https://css-tricks.com/writing-animations-that-bring-your-site-to-life/)
+
+* [Live Demo](https://pb03.github.io/css-animations-demo/)
+* [GitHub Repo](https://github.com/pb03/css-animations-demo)
+
+Web animation is one of the factors that can strongly enhance your website’s look and feel. Sadly, unlike mobile apps, there aren’t as many websites using animation to their benefit as you would think. We don’t want to count yours among those, so this article is for you and anyone else looking for ways to use animation for a better user experience! Specifically, we’re going to learn how to make web interactions delightful using CSS animations.
+
+
+Here’s what we’re going to build together:
+
+<video width="560" height="240" controls>
+  <source src="https://css-tricks.com/wp-content/uploads/2019/02/demo.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+
+Before we move ahead, it’s worth mentioning that I’m going to assume you have at least some familiarity with modern front-end frameworks and a basic understanding of CSS animations. If you don’t, then no fear! CSS-Tricks has a great guides on [React](https://css-tricks.com/guides/react/) and [Vue](https://css-tricks.com/guides/react/), as well as a thorough almanac post on the [CSS](https://css-tricks.com/almanac/properties/a/animation/) [animation property](https://css-tricks.com/almanac/properties/a/animation/).
+
+Good? OK, let’s talk about why we’d want to use animation in the first place and cover some baseline information about CSS animations.
+
+### Why would we to animate anything?
+
+We could probably do an entire post on this topic alone. Oh, wait! [Sarah Drasner already did that](https://css-tricks.com/the-importance-of-context-shifting-in-ux-patterns/) and her points are both poignant and compelling.
+
+But, to sum things up based on my own experiences:
+
+* Animations enhance the way users interact with an interface. For example, smart animations can reduce cognitive load by giving users better context between page transitions.
+* They can provide clear cues to users, like where we want them to focus attention.
+* Animations serve as another design pattern in and of themselves, helping users to get emotionally attached to and engage with the interface.
+* Another benefit of using animations is that they can create a perception that a site or app loads faster than it actually does.
+
+### A couple of house rules with animations
+
+Have you ever bumped into a site that animates **all the things**? Wow, those can be jarring. So, here’s a couple of things to avoid when working with animations so our app doesn’t fall into the same boat:
+
+Avoid animating CSS properties other than ```transform``` and ```opacity```. If other properties have to be animated, like width or height, then make sure there aren’t a lot of layout changes happening at the same time. There’s actually a cost to animations and you can see exactly how much by referring to [CSS Triggers](https://csstriggers.com/).
+Also, just because animations can create perceived performance gains, there’s actually a point of diminishing return when it comes to using them. Animating too many elements at the same time may result in decreased performance.
+Now we can get our hands dirty with some code!
+
+### Let’s build a music app
+
+We’re going to build the music app we looked at earlier, which is inspired by [Aurélien Salomon’s Dribbble shot](https://dribbble.com/shots/5527602-Apple-Music-Smooth-floating). I chose this example so that we can focus on animations, not only within a component, but also between different routes. We’ll build this app using Vue and create animations using vanilla (i.e. no framework) CSS.
+
+::: tip Pro tip!
+Animations should go hand-in-hand with UI development. Creating UI before defining their movement is likely to cost much more time. In this case, the Dribbble shot provides that scope for us.
+:::
+
+Let’s start with the development.
+
+
+#### Step 1: Spin up the app locally
+
+First things first. We need to set up a new Vue project. Again, we’re assuming some base-level understanding of Vue here, so please check out the [Learning Vue guide](https://css-tricks.com/guides/vue/) for more info on setting up.
+
+We need a couple of dependencies for our work, notably ```vue-router``` for transitioning between views and ```sass-loader``` so we can write in Sass and compile to CSS. Here’s a detailed [tutorial on using routes](https://css-tricks.com/build-a-custom-vue-router/) and Sass can be installed by pointing the command line at the project directory and using ```npm install -D sass-loader node-sass```.
+
+We have what we need!
+
+#### Step 2: Setting up routes
+
+For creating routes, we’re first going to create two bare minimum components — ```Artists.vue``` and ```Tracks.vue```. We’ll drop a new file in the ```src``` folder called ```router.js``` and add routes for these components as:
+``` javascript
+import Vue from 'vue'
+import Router from 'vue-router'
+import Artists from './components/Artists.vue'
+import Tracks from './components/Tracks.vue'
+
+Vue.use(Router)
+export default new Router({
+	mode: 'history',
+	routes: [
+		{
+			path: '/',
+			name: 'artists',
+			component: Artists
+		},
+		{
+			path: '/:id',
+			name: 'tracks',
+			component: Tracks
+		}
+	]
+})
+```
+
+Import ```router.js``` into the ```main.js``` and inject it to the Vue instance. Lastly, replace the content of your ```App.vue``` by ```<router-view/>```.
+
+#### Step 3: Create the components and content for the music app
+
+We need two components that we’ll transition between with animation. Those are going to be:
+
+1. ```Artists.vue``` a grid of artists
+2. ```Tracks.vue``` an artist image with a back button
+
+If you wanna jump ahead a bit, here are some assets to work with:
+
+1. [Images](https://github.com/pb03/css-animations-demo/raw/reference-code/assets.zip) and sample [data](https://github.com/pb03/css-animations-demo/tree/reference-code/data) in JSON format.
+2. [Content](https://github.com/pb03/css-animations-demo/tree/reference-code/components) for the components
+
+When all is said and done, the two views will come out to something like this:
