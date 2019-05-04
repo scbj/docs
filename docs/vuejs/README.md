@@ -274,3 +274,240 @@ If you wanna jump ahead a bit, here are some assets to work with:
 2. [Content](https://github.com/pb03/css-animations-demo/tree/reference-code/components) for the components
 
 When all is said and done, the two views will come out to something like this:
+
+![img](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_1000,f_auto,q_auto/v1550533879/music-app-screens_gwhsjq.png)
+
+_Artists.vue (left) and Tracks.vue (right)_
+
+#### Step 4: Animate!
+
+Here we are, the part we’ve really wanted to get to all this time. The most important animation in the app is transitioning from Artists to Tracks when clicking on an artist. It should feel seamless where clicking on an artist image puts that image in focus while transitioning from one view into the next. This is exactly the type of animation that we rarely see in apps but can drastically reduce cognitive load for users.
+
+To make sure we’re all on the same page, we’re going to refer to the first image in the sequence as the “previous” image and the second one as the "current" image. Getting the effect down is relatively easy as long as we know the dimensions and position of the previous image in the transition. We can animate the current image by transforming it as per previous image.
+
+The formula that I’m using is ```transform: translate(x, y) scale(n)```, where ```n``` is equal to the size of previous image divided by the size of current image. Note that we can use a static value of ```n``` since the dimensions are fixed for all the images. For example, the image size in the Artists view is ```190x190``` and ```240x240``` in the Tracks view. Thus, we can replace ```n``` by ```190/240 = 0.791```. That means the transform value becomes ```translate(x, y) scale(0.791)``` in our equation.
+
+![img](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_1000,f_auto,q_auto/v1550533981/music-app-animation-diagram_nkjwbx.png)
+
+_Animating from Artists to Tracks_
+
+Next thing is to find ```x``` and ```y```. We can get these values though click event in the Artists view as:
+
+``` javascript
+const {x, y} = event.target.getBoundingClientRect()
+```
+
+...and then send these values to the Tracks view, all while switching the route. Since we aren’t using any state management library, the two components will communicate via their parent component, which is the top level component, ```App.vue```. In ```App.vue```, let’s create a method that switches the route and sends the image info as params.
+
+``` javascript
+gotoTracks(position, artistId) {
+	this.$router.push({
+		name: 'tracks',
+		params: {
+			id: artistId,
+			position: position
+		}
+	})
+}
+```
+
+[https://github.com/pb03/css-animations-demo/blob/reference-code/App.vue](Here’s the relevant code) from the repo to reference, in case you’re interested.
+
+Since we have received the position and ID of the image in Tracks, we have all the required data to show and animate it. We’ll first fetch artist information (specifically the name and image URL) using artist ID.
+
+To animate the image, we need to calculate the ```transform``` value from the image’s starting position. To set the ```transform``` value, I’m using CSS custom properties, which can be done with CSS-in-JS techniques as well. Note that the image’s position that we received through props will be relative to window. Therefore we’ll have to subtract some fixed offset caused by the padding of the container ```<div>``` to even out our math.
+
+``` javascript
+const { x, y } = this.$route.params.position
+// padding-left
+const offsetLeft = 100
+// padding-top
+const offsetTop = 30
+
+// Set CSS custom property value
+document.documentElement.style.setProperty(
+	'--translate', 
+	`translate(${x - offsetLeft}px, ${y - offsetTop}px) scale(0.792)`
+)
+```
+
+We’ll use this value to create a keyframe animation to move the image:
+
+``` scss
+@keyframes move-image {
+	from {
+		transform: var(--translate);
+	}
+}
+```
+
+This gets assigned to the CSS animation:
+
+``` scss
+.image {
+	animation: move-image 0.6s;
+}
+```
+
+...and it will animate the image from this transform value to its original position on component load.
+
+![image](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_600,f_auto,q_auto/v1550534025/s_D931AB62E1E68F47894D0A090E9501B59CC83182583371FA7209E5A460E13D9D_1548265695511_1_iqbhne.gif)
+
+_Transitioning from Artists to Tracks_
+
+We can use the same technique when going the opposite direction, Tracks to Artists. As we already have the clicked image’s position stored in the parent component, we can pass it to props for Artists as well.
+
+![image](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_600,f_auto,q_auto/v1550534052/s_D931AB62E1E68F47894D0A090E9501B59CC83182583371FA7209E5A460E13D9D_1548265710457_2_hdq2gd.gif)
+
+_Transitioning from Tracks to Artists_
+
+#### Step 5: Show the tracks!
+
+It’s great that we can now move between our two views seamlessly, but the Tracks view is pretty sparse at the moment. So let’s add the track list for the selected artist.
+
+We’ll create an empty white box and a new keyframe to slide it upwards on page load. Then we’ll add three subsections to it: Recent Tracks, Popular Tracks, and Playlist. Again, if you want to jump ahead, feel free to either [reference or copy the final code](https://github.com/pb03/css-animations-demo/blob/reference-code/components/Tracks--full.vue) from the repo.
+
+![image](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_1000,f_auto,q_auto/v1550534086/music-app-tracks-content_hnedyn.png)
+
+_The Tracks view with content_
+
+Recent Tracks is the row of thumbnails just below the artist image where each thumbnail includes the track name and track length below it. Since we’re covering animations here, we’ll create a scale-up animation, where the image starts invisible (```opacity: 0```) and a little smaller than it’s natural size (```scale(0.7)```), then is revealed (```opacity: 1```) and scales up to its natural size (```transform: none```).
+
+``` scss
+.track {
+	opacity: 0;
+	transform: scale(0.7);
+	animation: scale-up 1s ease forwards;
+}
+
+@keyframes scale-up {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+```
+
+The Popular Tracks list and Playlist sit side-by-side below the Recent Tracks, where Popular tracks takes up most of the space. We can slide them up a bit on initial view with another set of keyframes:
+
+``` scss
+.track {
+	...
+	animation: slide-up 1.5s;
+}
+
+@keyframes slide-up {
+	from {
+		transform: translateY(140px);
+	}
+}
+```
+
+To make the animation feel more natural, we’ll create a stagger effect by adding an incremental animation delay to each item.
+
+``` scss
+@for $i from 1 to 5 {
+	&:nth-child(#{$i + 1}) {
+		animation-delay: #{$i * 0.05}s;
+	}
+}
+```
+
+The code above is basically looking for each child element, then adding a 0.05 second delay to each element it finds. So, for example, the first child gets a 0.05 second delay, the second child gets a 0.10 second delay and so on.
+
+Check out how nice and natural this all looks:
+
+<video width="560" height="240" controls>
+  <source src="https://css-tricks.com/wp-content/uploads/2019/02/content.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+
+### Bonus: micro-interactions!
+
+One of the fun things about working with animations is thinking through the small details because they’re what tie things together and add delight to the user experience. We call these micro-interactions and they serve a good purpose by providing visual feedback when an action is performed.
+
+Depending on the complexity of the animations, we might need a library like [anime.js](https://animejs.com/) or [GSAP](https://greensock.com/gsap). This example is pretty straightforward, so we can accomplish everything we need by writing some CSS.
+
+#### First micro-interaction: The volume icon
+
+Let’s first get a volume icon in SVG format ([Noun Project](https://thenounproject.com/search/?q=heart) and [Material Design](https://material.io/tools/icons/?icon=favorite&style=baseline) are good sources). On click, we’ll animate-in and out its ```path``` element to show the level of volume. For this, we’ll create a method which switches its CSS class according to the volume level.
+
+``` html
+<svg @click="changeVolume">
+	<g :class="`level-${volumeLevel}`">
+		<path d="..."/> <!-- volume level 1 -->
+		<path d="..."/> <!-- volume level 2 -->
+		<path d="..."/> <!-- volume level 3 -->
+		<polygon points="..."/>
+	</g>
+</svg>
+```
+
+Based on this class, we can show and hide certain ```path``` elements as:
+
+``` scss
+path {
+	opacity: 0;
+	transform-origin: left;
+	transform: translateX(-5px) scale(0.6);
+	transition: transform 0.25s, opacity 0.2s;
+}
+
+.level-1 path:first-child,
+.level-2 path:first-child,
+.level-2 path:nth-child(2),
+.level-3 path {
+	opacity: 1;
+	transform: none;
+}
+```
+
+![image](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_900,f_auto,q_auto/v1550534497/music-app-volume_q9xlm2.gif)
+
+_The animated volume control_
+
+#### Second micro-interaction: The favorite icon
+
+Do you like it when you click on Twitter’s heart button? That’s because it feels unique and special by the way it animates on click. We’ll make something similar but real quick. For this, we first get an SVG heart icon and add it to the the markup. Then we’ll add a bouncy animation to it that’s triggered on click.
+
+``` scss
+@keyframes bounce {
+	0%, 100% {
+		transform: none;
+	}
+	30% {
+		transform: scale(1.3);
+	}
+	60% {
+		transform: scale(0.9);
+	}
+}
+```
+
+Another fun thing we can do is add other small heart icons around it with random sizes and positions. Ideally, we’d add a few ```absolute```-positioned HTML elements that a heart as the background. Let’s Arrange each of them as below by setting their ```left``` and ```bottom``` values.
+
+We’ll also include a fade away effect so the icons appear to dissolve as they move upward by adding a keyframe animation on the same click event.
+
+``` scss
+@keyframes float-upwards {
+	0%, 100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	50%, 100% {
+		transform: translate(-1px, -5px);
+	}
+}
+```
+
+![image](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_900,f_auto,q_auto/v1550534803/music-app-favorite_wklb20.gif)
+
+_The animated favorite button_
+
+### Summing up
+
+That’s all! I hope you find all this motivating to try animations on your own websites and projects.
+
+While writing this, I also wanted to expand on the fundamental animation principles we glossed over earlier because I believe that they help choose animation durations, and avoid non-meaningful animations. That’s important to discuss because doing animations **correctly** is better than doing them at all. But this sounds like a whole another topic to be covered in a future article.

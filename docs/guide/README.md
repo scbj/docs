@@ -16,6 +16,7 @@ The list of threads can be found in the [Thread](/guide/#threads) section of the
 
 * Adobe XD
 * CSS
+* [Design](/design/)
 * JavaScript
 * [Vue.js](/vuejs/)
 
