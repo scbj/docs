@@ -1,10 +1,10 @@
 # Visual Studio Code
 
-## console.log() Faster with Turbo Console Log
-
-Source: [Scotch.io](https://scotch.io/bar-talk/consolelog-faster-with-turbo-console-log)
+## ```console.log()``` Faster with Turbo Console Log
 
 _Published: March 11, 2019_ by [Chris Sevilleja](https://scotch.io/@chris)
+
+Source: [Scotch.io](https://scotch.io/bar-talk/consolelog-faster-with-turbo-console-log)
 
 I've recently been [live-coding on Twitch](https://www.twitch.tv/chrisoncode) and the thing that I've loved about it is all the users in the chat that are helping me out by giving me their own tips and tricks.
 
