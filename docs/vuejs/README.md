@@ -313,10 +313,7 @@ Web animation is one of the factors that can strongly enhance your website’s l
 
 Here’s what we’re going to build together:
 
-<video width="560" height="240" controls>
-  <source src="https://css-tricks.com/wp-content/uploads/2019/02/demo.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
+[Video](https://css-tricks.com/wp-content/uploads/2019/02/demo.mov)
 
 Before we move ahead, it’s worth mentioning that I’m going to assume you have at least some familiarity with modern front-end frameworks and a basic understanding of CSS animations. If you don’t, then no fear! CSS-Tricks has a great guides on [React](https://css-tricks.com/guides/react/) and [Vue](https://css-tricks.com/guides/react/), as well as a thorough almanac post on the [CSS](https://css-tricks.com/almanac/properties/a/animation/) [animation property](https://css-tricks.com/almanac/properties/a/animation/).
 
@@ -545,10 +542,8 @@ The code above is basically looking for each child element, then adding a 0.05 s
 
 Check out how nice and natural this all looks:
 
-<video width="560" height="240" controls>
-  <source src="https://css-tricks.com/wp-content/uploads/2019/02/content.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
+[Video](https://css-tricks.com/wp-content/uploads/2019/02/content.mov)
+
 
 ### Bonus: micro-interactions!
 
