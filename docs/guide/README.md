@@ -18,6 +18,7 @@ The list of threads can be found in the [Threads](/guide/#threads) section of th
 * CSS
 * [Design](/design/)
 * JavaScript
+* [Visual Studio Code](/vscode/)
 * [Vue.js](/vuejs/)
 
 ## External Links
