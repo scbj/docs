@@ -10,7 +10,7 @@ If you'r wonder, the principles in the Home page come from [Human by Design](htt
 
 > This site allows me to keep the tips and documentations in one place, organized, searchable and easy to edit.
 
-The list of threads can be found in the [Thread](/guide/#threads) section of the guide.
+The list of threads can be found in the [Threads](/guide/#threads) section of the guide.
 
 ## Threads
 
