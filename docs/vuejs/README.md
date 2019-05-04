@@ -1,6 +1,25 @@
 # Vue.js
 
+## Common Gotchas
+
+_Published: April 4, 2017_
+
+Source: [Alligator.io](https://alligator.io/vuejs/common-gotchas/)
+
+> As with any framework, Vue has a few oddities that might take newcomers a little while to get used to, and many stumble over. Here, we’ll attempt to list a number of those and how to work with and/or around them.
+
+### Reactivity
+
+Vue’s reactivity system is great, but it doesn’t handle quite everything. There are a few edge cases that Vue can’t detect. (Yet. Hopefully when ES6 Proxies are widely supported these caveats will be gone.)
+
+* When properties are added or removed from an object, Vue won’t know about it and won’t make them reactive.
+* You can’t add new properties to the root data object directly, but you can use `Vue.set(this.data, ‘propname’, value)`
+* Vue can’t detect when a particular index value changes in an array from setting it directly through `array[index] = value`. The workaround is to use `Vue.set(array, index, value)`
+* Vue can’t detect when the length of an array changes. Use splice instead.
+
 ## Global Event Bus
+
+_Published: January 9, 2017_
 
 Source: [Alligator.io](https://alligator.io/vuejs/global-event-bus/)
 
@@ -92,24 +111,133 @@ You could also remove **all** listeners for a particular event using `EventBus.$
 If you really need to remove every single listener from EventBus, regardless of channel, you can call `EventBus.$off()` with no arguments at all.
 :::
 
-## Common Gotchas
+## Handle Touch Events in Vue.js with vue-touch
 
-Source: [Alligator.io](https://alligator.io/vuejs/common-gotchas/)
+_Published: May 3, 2017_
 
-> As with any framework, Vue has a few oddities that might take newcomers a little while to get used to, and many stumble over. Here, we’ll attempt to list a number of those and how to work with and/or around them.
+Source: [Alligator.io](https://alligator.io/vuejs/vue-touch-events/)
 
-### Reactivity
+> It seems these days that more and more people are foregoing their tried-and-true big screens, keyboards and mice, for a tiny new-fangled slab of glass and metal that does nothing but frustrate those of us with large fingers. Because of this, unfortunately, it has almost become unthinkable to develop only for the reasonable platforms (desktops, laptops, and mainframes.) We now have to worry about handling things like taps and swipes with greasy fingers. To make matters worse, the web platform doesn’t quite support that sort of stuff too well. For those of us developing with Vue.js though, never fear. [vue-touch](https://github.com/vuejs/vue-touch/tree/next) is here to make your finger-poking woes go away. It uses [Hammer.js](https://hammerjs.github.io/) under the hood to provide a nice simple API for handling touch events.
 
-Vue’s reactivity system is great, but it doesn’t handle quite everything. There are a few edge cases that Vue can’t detect. (Yet. Hopefully when ES6 Proxies are widely supported these caveats will be gone.)
+### Installation
 
-* When properties are added or removed from an object, Vue won’t know about it and won’t make them reactive.
-* You can’t add new properties to the root data object directly, but you can use `Vue.set(this.data, ‘propname’, value)`
-* Vue can’t detect when a particular index value changes in an array from setting it directly through `array[index] = value`. The workaround is to use `Vue.set(array, index, value)`
-* Vue can’t detect when the length of an array changes. Use splice instead.
+**NOTE:** ```vue-touch``` for Vue 2.0 is currently (05-03-2017) in beta, and therefore must be installed with the ```@next``` tag.
+
+``` bash
+# Yarn
+$ yarn add vue-touch@next
+# or NPM
+$ npm install vue-touch@next --save
+```
+
+Now, as always, enable the plugin in your main app file.
+
+_src/main.js_
+``` javascript
+import Vue from 'vue';
+import VueTouch from 'vue-touch';
+import App from 'App.vue';
+
+Vue.use(VueTouch);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+```
+
+### Usage
+
+VueTouch adds a single component, ```v-touch```. It normally renders as a div unless configured otherwise with a ```tag``` property. It wraps your components and sets up the Hammer.js manager and recognizers. All you have to do is bind to the events.
+
+``` javascript
+<template>
+  <div>
+    <v-touch @swipeleft="doSomething">
+      <p>I can now be swiped on!</p>
+    </v-touch>
+    <v-touch @rotate="rotateAThing">
+      <p>Rotate me!</p>
+    </v-touch>
+  </div>
+</template>
+```
+
+You can pass Hammer.js configuration options to the v-touch component with :```EVENT-options```. (ex. ```:swipe-options```, ```:rotate-options```) Full documentation on the various options can be found here: [https://hammerjs.github.io/getting-started/](https://hammerjs.github.io/getting-started/)
+
+``` javascript
+<template>
+  <div>
+    <v-touch @swipeleft="doSomething" :swipe-options="{ threshold: 200 }">
+      <p>I can now be swiped on!</p>
+    </v-touch>
+    <v-touch @rotate="rotateAThing" :rotate-options="{ pointers: 3 }">
+      <p>Rotate me!</p>
+    </v-touch>
+  </div>
+</template>
+```
+
+### Events
+
+There are quite a few events, but they pretty much all do what they say on the tin.
+
+* **Panning** - pan, panstart, panmove, panend, pancancel, panleft, panright, panup, pandown
+* **Pinching** - pinch, pinchstart, pinchmove, pinchend, pinchcancel, pinchin, pinchout
+* **Pressing** - press, pressup
+* **Rotating** -rotate, rotatestart, rotatemove, rotateend, rotatecancel
+* **Swiping** - swipe, swipeleft, swiperight, swipeup, swipedown
+* **Tapping** - tap
+
+### Methods
+
+```v-touch``` components expose a few methods as well.
+
+* **enable(eventName)** will enable the recognizer for the specified event.
+* **disable(eventName)** will disable the recognizer for the specified event.
+* **toggle(eventName)** will toggle the enabled state of the recognizer.
+* **disableAll()** and **enableAll()** will disable and enable all recognizers for the component.
+* **isEnabled(eventName)**: Boolean returns the enabled state of a recognizer.
+
+``` javascript
+<template>
+  <v-touch ref="swiper" @swipe="handleSwipe">
+    <p>Swiper, no swiping!</p>
+  </v-touch>
+</template>
+
+<script>
+export default {
+  mounted() {
+    this.$refs.swiper.disable('swipe')
+  }
+}
+</script>
+```
+
+### Config
+
+There’s a bit more you can do in the way of configuration.
+
+* You can enable and disable all recognizers with the :enabled=”boolean” prop, or pass an object to enable and disable them individually.
+* There are a few default options that you can pass with the :options=”{}” prop.
+* You can also register new events (really just events with default options) using VueTouch.registerCustomEvent(eventName, config). This must be called before Vue.use(VueTouch) and can be used like any other event from vue-touch.
+
+``` javascript
+// A custom horizontal swipe event.
+VueTouch.registerCustomEvent('horizontal-swipe', {
+  type: 'swipe',
+  direction: 'horizontal'
+})
+```
+
+There you go. Have fun adding random gestures and whatnot to your fancy little app-y things.
 
 ## Using SVG Icons
 
-Source: [Alligator.io](https://alligator.io/vuejs/global-event-bus/)
+_Published: March 21, 2017_
+
+Source: [Alligator.io](https://alligator.io/vuejs/using-svg-icons/)
 
 > While font-based icons ruled the world a year or two ago, embedded SVG icons have since taken the stage (often credited to [this post](https://css-tricks.com/icon-fonts-vs-svg/)) as the best way to include icons in your app. Unfortunately, adding them by hand requires a lot of work and duplicated effort. Thankfully, [vue-svgicon](https://github.com/MMF-FE/vue-svgicon) aims to simplify this and does a wonderful job.
 
@@ -171,9 +299,9 @@ import './compiled-icons/menu';
 There are a few other neat little tricks v**ue-svgicon** has up its sleeve, find out more at the [official repository](https://github.com/MMF-FE/vue-svgicon).
 
 
-
-
 ## Writing Animations That Bring Your Site to Life
+
+_Published: Feb 22, 2019_
 
 Source: [CSS-Tricks](https://css-tricks.com/writing-animations-that-bring-your-site-to-life/)
 
