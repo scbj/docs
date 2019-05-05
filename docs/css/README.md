@@ -2,7 +2,7 @@
 
 ## Performant Parallaxing
 
-Updated: May 1, 2019 by [Paul Lewis](https://developers.google.com/web/resources/contributors/paullewis)
+_Updated: May 1, 2019_ by [Paul Lewis](https://developers.google.com/web/resources/contributors/paullewis)
 
 Source: [Google Developers](https://developers.google.com/web/updates/2016/12/performant-parallaxing)
 
