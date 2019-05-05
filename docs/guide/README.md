@@ -15,7 +15,7 @@ The list of threads can be found in the [Threads](/guide/#threads) section of th
 ## Threads
 
 * Adobe XD
-* CSS
+* [CSS](/css/)
 * [Design](/design/)
 * JavaScript
 * [Visual Studio Code](/vscode/)
