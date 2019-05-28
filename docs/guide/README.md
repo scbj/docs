@@ -79,6 +79,12 @@ A link list to some tools, services and resources.
 * [Zondicons](https://www.zondicons.com/)
 <br>A set of free premium SVG icons for you to use on your digital products.
 
+### Music
+
+* ![img](/images/icons/artlist.png) [Artlist.io](https://artlist.io/)
+<br>**Royalty-Free Music**
+<br>Get unlimited music for your videos.
+
 ## Author
 
 Made by Sacha Bejaud ([sacha.bejaud@outlook.com](mailto:sacha.bejaud@outlook.com)) for his personal use.

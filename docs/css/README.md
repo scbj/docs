@@ -1,5 +1,81 @@
 # Cascading Style Sheets (a.k.a. CSS)
 
+## CSS can do that?
+
+_Updated: May 21, 2019_ by [Ananya Neogi](https://dev.to/ananyaneogi)
+
+Source: [DEV Community](https://dev.to/ananyaneogi/css-can-do-that-18g7)
+
+A list of amazing things that CSS can do!
+
+::: warning Browser Compatibility
+Some of these properties won't work in some browsers because of support. We can check for browser support using @supports and add fallback styles accordingly. Please use Chrome to view the examples 🙂
+:::
+
+### 1. ```box-decoration-break```
+
+This CSS property specifies how an element's fragments should be rendered when broken across multiple lines, columns, or pages.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS: box-decoration-break" src="//codepen.io/ananyaneogi/embed/preview/GeRoRO/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/GeRoRO/'>CSS: box-decoration-break</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 2. ```attr()```
+
+We can retrieve values of the selected element in CSS by using ```attr()```. This method could be really helpful with accessibility purposes.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="attr() in CSS" src="//codepen.io/ananyaneogi/embed/preview/gEpeda/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/gEpeda/'>attr() in CSS</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 3. ```backface-visibility```
+
+This CSS property sets whether the back face of an element is visible when turned towards the user. Thinking of a card flip UI?
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS Card Flip On Hover" src="//codepen.io/ananyaneogi/embed/preview/Ezmyeb/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/Ezmyeb/'>CSS Card Flip On Hover</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 4. ```conic-gradient```
+
+Gradients are a wonderful thing. You might've used to style backgrounds with linear gradients but do you know we can use pure css to create pie charts with the help of ```conic-gradient```!
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Pie Chart With Pure CSS" src="//codepen.io/ananyaneogi/embed/preview/mYmrMJ/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/mYmrMJ/'>Pie Chart With Pure CSS</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+To better understand how ```conic-gradients```, [reference the MDN docs on it](https://developer.mozilla.org/en-US/docs/Web/CSS/conic-gradient)
+
+### 5. ```filter```
+
+Who needs photoshop filter effects when you have CSS filters. 🙃
+Filter functions applies graphical changes to the appearance of an input image. The effects we can achieve are as follows - ```blur```, ```brightness```, ```contrast```, ```grayscale```, ```hue-rotate```, ```opacity```, ```invert```, ```sepia```, ```saturate```, ```drop-shadow```.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS Filters" src="//codepen.io/ananyaneogi/embed/preview/YbVpyG/?height=265&theme-id=light&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/YbVpyG/'>CSS Filters</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+```drop-shadow``` filter is pretty amazing. It lets you apply drop shadow to the input image.
+
+<iframe height="400" style="width: 100%;" scrolling="no" title="CSS Drop Shadow" src="//codepen.io/ananyaneogi/embed/preview/PvmbeR/?height=265&theme-id=light&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/PvmbeR/'>CSS Drop Shadow</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 6. ```mix-blend-mode```
+
+This CSS property sets how an element's content should blend with the content of the element's background or its parent.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS Blend Modes" src="//codepen.io/ananyaneogi/embed/preview/rgwNLx/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/rgwNLx/'>CSS Blend Modes</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Performant Parallaxing
 
 _Updated: May 1, 2019_ by [Paul Lewis](https://developers.google.com/web/resources/contributors/paullewis)
