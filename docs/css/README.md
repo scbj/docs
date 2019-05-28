@@ -76,6 +76,61 @@ This CSS property sets how an element's content should blend with the content of
   (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Amazing things can be achieved by mixing blend modes and filters with images and text. Learn more on [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode).
+
+### 7. ```first-letter```
+
+One of my favourite things in books and magazines are the beautiful drop-caps. We can create drop with ```first-letter``` pseudo-element.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS Drop-Cap" src="//codepen.io/ananyaneogi/embed/preview/oRWBBE/?height=265&theme-id=light&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/oRWBBE/'>CSS Drop-Cap</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 8. ```shape-outside```
+
+This CSS property provides a way to customise wrapping adjacent inline content around complex objects rather than simple rectangular boxes.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="CSS Shape-Outside" src="//codepen.io/ananyaneogi/embed/preview/ZNKepv/?height=265&theme-id=light&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/ZNKepv/'>CSS Shape-Outside</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+> Open the example in a different tab and try changing the width of the window and notice how the text wraps around the image.
+
+### 9. ```writing-mode```
+
+This CSS property sets whether the lines of text are laid out horizontally or vertically. We can have these values :
+
+* ```horizontal-tb``` - Content flows horizontally from left to right, vertically from top to bottom
+
+* ```vertical-lr``` - Content flows horizontally from left to right, vertically from top to bottom
+
+* ```vertical-rl``` - Content flows horizontally from right to left, vertically from top to bottom
+
+Checkout this [this example](https://ananyaneogi.github.io/css-experiments/quote.html) to see it in action.
+
+### 10. ```Adding gradient to text```
+
+This is achieved with the combination of ```-webkit-background-clip: text``` and ```-webkit-text-fill-color: transparent``` CSS properties.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Gradient Text with CSS " src="//codepen.io/ananyaneogi/embed/preview/pmPPpY/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/pmPPpY/'>Gradient Text with CSS </a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### 11. ```Smooth scroll snap```
+
+```scroll-snap-type``` CSS property sets how snap points are applied on the scroll container.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Scroll Snap with CSS" src="//codepen.io/ananyaneogi/embed/preview/mYmodx/?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/ananyaneogi/pen/mYmodx/'>Scroll Snap with CSS</a> by Ananya Neogi
+  (<a href='https://codepen.io/ananyaneogi'>@ananyaneogi</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+This example shows vertical(```y```) scroll with value ```mandatory```. [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) does a great job on explaining how to use other values such as proximity and horizontal scroll(```x```).
+
+
 ## Performant Parallaxing
 
 _Updated: May 1, 2019_ by [Paul Lewis](https://developers.google.com/web/resources/contributors/paullewis)
