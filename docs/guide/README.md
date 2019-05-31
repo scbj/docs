@@ -79,6 +79,12 @@ A link list to some tools, services and resources.
 * [Zondicons](https://www.zondicons.com/)
 <br>A set of free premium SVG icons for you to use on your digital products.
 
+### Messaging
+
+* ![img](/images/icons/10mails.png) [10mails.net](https://10mails.net/)
+<br>**Temporary email service**
+<br>We created it for you to stay anonymous on the internet and get rid of junk emails with deleted email addresses at the end of a certain period of time.
+
 ### Music
 
 * ![img](/images/icons/artlist.png) [Artlist.io](https://artlist.io/)
