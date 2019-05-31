@@ -23,6 +23,44 @@ The bottom line is - don't look the same. Espacially not if the competitor is a 
 
 But keep in mind that gender, age and culture play a big role in perceiving colors. Don't rely heavily on these principles, but rather try to include the target audience's personalities as well. It's worth spending time on finding a good balance.
 
+## 8 principles to using a dark UI theme
+
+_Published: May 28, 2019_ by [zanderwhitehurst](https://www.instagram.com/zanderwhitehurst/)
+
+Source: [Instagram](https://www.instagram.com/p/BxYq2VbFkR8/)
+
+### Data
+
+Just because you thing it looks cool, does'nt mean you should choose a dark UI theme. Data should be driving all of your decisions as a produt designer. Do the research and bring stats to the table before discussing a dark theme.
+
+### Readability
+
+Dark text on a light background is more widely used for better readabiity and focus during the day. However, the more time we spend concentrating on reading or writing in front of a screen, the more straining it becomes for our eyes. Code and video editors tend to have a dark theme for this exact reason. Track time spent on your product and if it's a lot then dark should trump light.
+
+### Time of day
+
+It's important to establish what time of day and environment your product will be used in. Bright light at night is not ideal for our eyres, hence why products like Netflix and Spotify rock a dark theme. Always try to make the user feel comfortable in their environment.
+
+### Contrast
+
+Sketch introduced a light theme to design tools. But, dark themes help shift focus on the main content area. Editing tools can appear complex with endless icons of cuntionnality. A dark theme shifts the primary focus to content with less contrast on the functionality options. Invision Studio is a prime example of a dark themed design tool. Focusing attention on artboards vs editing options.
+
+### Light vs
+
+It doesn't have to be one or the other.  lot of products offer preferences and remember not every user is the same. Customization increases conversion. If you have done the research and your product is user across day and night then don't beafrai to have a gradual shift from light to dark. Waze do this brilliantly if you need inspiration.
+
+### Age
+
+Successful products tend to have a very specific target audience. If your product is targeting gen x then it's an opportunity to explore a dark, more magical theme. However, for older generations, a light UI is less intimidating and higher contrast with bigger fonts should always be considered.
+
+### ```#000000```
+
+If you do adopt a dark theme avoid using ```#000000``` as your background color. The contrast is too high and a dark blue is far easier for readability. Blue is also the most important color in UI design and is the perfect primary if you are little afraid of tackling the dark theme in your product.
+
+### ```#ffffff```
+
+We've got a dark background so white text is a must. Absolutely not. Pure white should be used with caution because it can often be too strong against a dark background. Stark is a great Sketch plugin to show whether your designs pass or fail in accessbility and meet the minimum contrast ration of ```4.5:1```.
+
 
 ## How To Build an App That Stands Out
 
