@@ -5,9 +5,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'Vue.js', link: '/vuejs/' },
-      { text: 'BitBucket', link: 'https://bitbucket.org' },
-      { text: 'Todoist', link: 'https://todoist.com/app?lang=fr#project%2F1780662122%2Ffull' }
+      { text: 'Vue.js', link: '/vuejs/' }
     ],
     sidebar: 'auto'
   }

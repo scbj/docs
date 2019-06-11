@@ -1,5 +1,5 @@
 {
-  "name": "docs.scbj.io",
+  "name": "docs",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
@@ -7,13 +7,9 @@
     "build": "vuepress build docs",
     "clean": "rm -rf node_modules"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://sachabejaud@bitbucket.org/sachabejaud/docs.scbj.io.git"
-  },
-  "author": "Sacha Bejaud",
+  "author": "Sacha",
   "contributors": [
-    "Sacha Bejaud <sacha.bejaud@outlook.com> (https://who.scbj.io)"
+    "Sacha <contact@scbj.io> (https://who.scbj.io)"
   ],
   "dependencies": {
     "vuepress": "^0.14.11"
