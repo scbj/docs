@@ -5,7 +5,8 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'Vue.js', link: '/vuejs/' }
+      { text: 'Vue.js', link: '/vuejs/' },
+      { text: 'GitHub', link: 'https://github.com/scbj/docs' },
     ],
     sidebar: 'auto'
   }

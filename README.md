@@ -1,5 +1,7 @@
 # 📄 Docs
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c605a790-68a6-4113-a7cf-fb8c5a72030d/deploy-status)](https://app.netlify.com/sites/sad-stallman-7138b8/deploys)
+
 Beautiful personal documentations powered by [VuePress](https://vuepress.vuejs.org/) 🔥.
 
 [Live Website](https://docs.scbj.io).
