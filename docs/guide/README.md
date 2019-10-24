@@ -100,4 +100,4 @@ A link list to some tools, services and resources.
 
 ## Author
 
-Made by Sacha Bejaud ([sacha.bejaud@outlook.com](mailto:sacha.bejaud@outlook.com)) for his personal use.
+Made by Sacha ([contact@scbj.io](mailto:contact@scbj.io)) for his personal use.
